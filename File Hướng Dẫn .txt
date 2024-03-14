@@ -1,0 +1,8 @@
+👉 cài thư viện streamlit   
+
+	👇                      
+pip install treamlit 
+        👇 
+cd tới thư mục chứa file 
+	👇               
+streamlit run app.py 
