@@ -313,7 +313,7 @@ Với công thức: 		                                                   (3.2.1.
 + Trong đó Xmin là giá trị tối thiểu và Xmax là giá trị tối đa của đặc điểm.
 Chuẩn hóa là phương pháp tối ưu khi tập dữ liệu không có Phân phối Gaussian. Hữu ích cho các thuật toán như K─NN mà không giả định bất kỳ phân phối nào.
 
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+.........................................................................................
 
 from sklearn.preprocessing import MinMaxScaler
 
@@ -331,7 +331,7 @@ features_scaled = scaler.transform(features_data)
 
 features_scaled = pd.DataFrame(features_scaled, columns=features_data.columns)
 
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+......................................................................................
 
 3.2.2.	Thể hiện biểu đồ:
 
