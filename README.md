@@ -449,6 +449,8 @@ Hình 3.2.2.2.b. 1: biểu đồ Tương quan  Heatmap
 
 - Biểu đồ Swarm
 
+...................................................................................................
+
 swarm_data = pd.concat([features_scaled[["radius_mean","perimeter_mean","area_mean",
     "compactness_mean", "concavity_mean", "concave points_mean"]], labels_data], axis=1)
 
@@ -467,7 +469,7 @@ Hình 3.2.2.2.c. 1: Biểu đồ Swarm của các thuộc tính “radius_mean�
 
 ....................................................................................................
 
-# Biểu đồ Swarm
+- Biểu đồ Swarm
 
 swarm_data = pd.concat([features_scaled[["radius_se","perimeter_se","area_se", "radius_worst",
     "perimeter_worst", "area_worst", 'texture_mean']], labels_data], axis=1)
