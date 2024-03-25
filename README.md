@@ -256,61 +256,100 @@ Thông tin các đặc trưng :
 
 Vì vậy, loại bỏ các cột trên khỏi tập dữ liệu.
 
-# Nhãn (labels) là cột "diagnosis"
+_______________________________________________________________________
+- Nhãn (labels) là cột "diagnosis"
+
 labels_data = breast_cancer_data['diagnosis']
-# Danh sách cột cần loại bỏ
+- Danh sách cột cần loại bỏ
+
 danh_sach_loai_bo = ['Unnamed: 32', 'id', 'diagnosis']
-# Các đặc điểm (features) là các cột còn lại
+
+- Các đặc điểm (features) là các cột còn lại
+
 features_data = breast_cancer_data.drop(danh_sach_loai_bo, axis=1)
+
 features_data.head(3)
+________________________________________________________________________
 
 3.2. Trực quan hóa dữ liệu & lựa chọn đặc điểm:
 
-# Hiển thị số lượng "Lành Tính " và "Ác Tính"
+___________________________________________________________________________________________________________
+- Hiển thị số lượng "Lành Tính " và "Ác Tính"
+  
 benign_count = labels_data.value_counts()['B']
+
 malignant_count = labels_data.value_counts()['M']
+
 print("Số lượng Lành Tính: {benign_count}\nSố lượng Ác tính: {malignant_count}"
 .format(benign_count = labels_data.value_counts()[0], malignant_count = labels_data.value_counts()[1]))
+
 plt.figure(figsize=(8,6))
+
 labels_count = sns.countplot(x=labels_data, order=['M', 'B'])
+
 plt.xlabel("Loại Ung Thư")
+
 plt.ylabel("Số Lượng")
+
+______________________________________________________________________________________________________________
 
  
 Hình 3.2. 1: Hiển thị số lượng “Lành Tính” và “Ác Tính”
-     Với biểu đồ trên: 
+
+ Với biểu đồ trên: 
+ 
 Số lượng Lành Tính: 357
+
 Số lượng Ác tính: 212
-     Có thể thấy tập dữ liệu không cân bằng, vì số mẫu lành tính lớn hơn số mẫu ác tính, vì vậy cần cân bằng tập dữ liệu.
+
+ Có thể thấy tập dữ liệu không cân bằng, vì số mẫu lành tính lớn hơn số mẫu ác tính, vì vậy cần cân bằng tập dữ liệu.
+
 3.2.1	Chuẩn hóa (Normalization):
+
 Chuẩn hóa là một quy trình trong đó các giá trị được dịch chuyển và tỷ lệ giữa 0 và 1. Còn được gọi là Min-Max Scaling. Nó được sử dụng để chuẩn hóa dữ liệu sao cho các đặc điểm có một tỷ lệ tương tự. 
+
 Với công thức: 		                                                   (3.2.1.1)
+
 + Trong đó Xmin là giá trị tối thiểu và Xmax là giá trị tối đa của đặc điểm.
 Chuẩn hóa là phương pháp tối ưu khi tập dữ liệu không có Phân phối Gaussian. Hữu ích cho các thuật toán như K─NN mà không giả định bất kỳ phân phối nào.
 
 from sklearn.preprocessing import MinMaxScaler
-# Tạo một đối tượng của StandardScaler	
+
+_____________________________________________________________________________________
+
+- Tạo một đối tượng của StandardScaler	
+
  scaler = MinMaxScaler()
-# Khớp (fit) dữ liệu của dataframe với scaler print(scaler.fit(features_data))
-# Chuyển đổi dataframe
+
+- Khớp (fit) dữ liệu của dataframe với scaler print(scaler.fit(features_data))
+
+- Chuyển đổi dataframe
+
 features_scaled = scaler.transform(features_data)
-# Chuyển đổi mảng đã được chuẩn hóa thành dataframe
+
+- Chuyển đổi mảng đã được chuẩn hóa thành dataframe
+
 features_scaled = pd.DataFrame(features_scaled, columns=features_data.columns)
+________________________________________________________________________________________
 
 3.2.2.	Thể hiện biểu đồ:
+
 3.2.2.1. Biểu đồ Violin:
+
 Nhóm 10 đặc điểm để quan sát dữ liệu số ➩ so sánh phân phối giữa nhiều nhóm:
+
 a.	10 đặc trưng đầu tiên:
- 
+
 Hình 3.2.2.1. 1: Biểu đồ Violin thể hiện 10 đặc trưng đầu tiên
+
 Từ biểu đồ trên, thấy rằng một số đặc điểm như radius_mean và texture_mean có phân phối tương tự, trong đó giá trị trung bình của Lành tính được tách biệt khỏi Ác tính. Những đặc điểm như vậy có thể phù hợp cho việc phân loại.
+
 Trong khi đó, đặc điểm fractal_dimension_mean có giá trị trung bình của Lành tính và Ác tính gần như giống nhau, do đó không phù hợp để sử dụng đặc điểm này cho việc phân loại.
-
-
  
 b.	10 đặc trưng tiếp theo:
  
 Hình 3.2.2.1. 2: Biểu đồ Violin thể hiện 10 đặc trưng tiếp theo
+
 c.	Các đặc trưng còn lại 
  
 Hình 3.2.2.1. 3: Biểu đồ Violin thể hiện các đặc trưng còn lại
