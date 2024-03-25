@@ -256,7 +256,8 @@ Thông tin các đặc trưng :
 
 Vì vậy, loại bỏ các cột trên khỏi tập dữ liệu.
 
-_______________________________________________________________________
+.............................................................................
+
 - Nhãn (labels) là cột "diagnosis"
 
 labels_data = breast_cancer_data['diagnosis']
@@ -269,11 +270,13 @@ danh_sach_loai_bo = ['Unnamed: 32', 'id', 'diagnosis']
 features_data = breast_cancer_data.drop(danh_sach_loai_bo, axis=1)
 
 features_data.head(3)
-________________________________________________________________________
+
+.............................................................................
 
 3.2. Trực quan hóa dữ liệu & lựa chọn đặc điểm:
 
-___________________________________________________________________________________________________________
+............................................................................................................
+
 - Hiển thị số lượng "Lành Tính " và "Ác Tính"
   
 benign_count = labels_data.value_counts()['B']
@@ -291,9 +294,8 @@ plt.xlabel("Loại Ung Thư")
 
 plt.ylabel("Số Lượng")
 
-______________________________________________________________________________________________________________
+................................................................................................................
 
- 
 Hình 3.2. 1: Hiển thị số lượng “Lành Tính” và “Ác Tính”
 
  Với biểu đồ trên: 
@@ -354,504 +356,910 @@ Hình 3.2.2.1. 2: Biểu đồ Violin thể hiện 10 đặc trưng tiếp theo
 c.	Các đặc trưng còn lại 
  
 Hình 3.2.2.1. 3: Biểu đồ Violin thể hiện các đặc trưng còn lại
+
 Các đặc điểm concavity_worst và concave point_worst có vẻ giống nhau, để tốt hơn về phân phối (nếu các đặc điểm có mối tương quan với nhau) một trong các đặc điểm có thể bị loại bỏ.
+
 3.2.2.2. Biểu đồ Jointplot , Biểu đồ Tương quan bằng Heatmap, Biểu đồ Swarm:
+
 a. Thể hiện biểu đồ Jointplot:
-# Biểu đồ Jointplot cho hai đặc điểm
+
+..............................................................................................................
+
+- Biểu đồ Jointplot cho hai đặc điểm
+
 graph = sns.jointplot(x="concavity_worst", y="concave points_worst", data=features_scaled, kind="reg")
 r, p = stats.pearsonr(x=features_scaled['concavity_worst'], y=features_scaled['concave points_worst'])
 phantom, = graph.ax_joint.plot([], [], linestyle="", alpha=0)
+
 graph.ax_joint.legend([phantom],['r={:f}, p={:f}'.format(r,p)])
+
+...............................................................................................................
+
 Kết quả:
  
 Hình 3.2.2.2.a. 1: Biểu đồ Jointplot cho hai đặc điểm “concavity_worst” & “concave points_worst”
-Từ Biểu đồ Joint Plot trên, phân phối dữ liệu của các đặc điểm trên khá tương tự. Giá trị Pearsonr là 0.85, gần bằng 1.0, cho thấy sự tương quan mạnh mẽ giữa các đặc điểm concavity_worst và concave point_worst. Do đó, có thể loại bỏ đặc điểm concavity_worst và concave point_worst khỏi tập dữ liệu vì chúng tương quan với nhau.
+
+Từ Biểu đồ Joint Plot trên, phân phối dữ liệu của các đặc điểm trên khá tương tự. Giá trị Pearsonr là 0.85, gần bằng 1.0, cho thấy sự tương quan mạnh mẽ giữa các đặc điểm concavity_worst và concave point_worst. 
+
+Do đó, có thể loại bỏ đặc điểm concavity_worst và concave point_worst khỏi tập dữ liệu vì chúng tương quan với nhau.
+
 ─ Giới thiệu thuật ngữ:
+
 •	r (hệ số tương quan Pearson):
+
 + r đo lường mức độ tương quan tuyến tính giữa hai biến. Nó có giá trị từ -1 đến 1.
+
 + Giá trị r gần 1 cho thấy có mối quan hệ tuyến tính dương mạnh giữa hai biến, trong khi r gần -1 cho thấy có mối quan hệ tuyến tính âm mạnh.
+
 + Nếu r gần 0, đó có thể là dấu hiệu của sự không tương quan hoặc mối quan hệ không tuyến tính.
+
 •	p (giá trị p):
+
 + p đo lường mức độ tin cậy của giá trị r. Nếu p nhỏ (thường dưới 0.05), bạn có thể kết luận rằng có một mối quan hệ tuyến tính có ý nghĩa giữa hai biến.
+
 + Giá trị p lớn có thể chỉ ra rằng không có đủ bằng chứng để bác bỏ giả thuyết không có mối quan hệ.
+
 •	Legend:
+
 + Đoạn mã cuối cùng tạo một đối tượng legend trên biểu đồ để hiển thị giá trị r và p.
+
 + r được hiển thị trên biểu đồ để thể hiện mức độ mối quan hệ tuyến tính.
+
 + p không hiển thị trực tiếp trên biểu đồ, nhưng thông thường được sử dụng để đưa ra quyết định về sự ý nghĩa thống kê của mối quan hệ.
+
 b. Thể hiện biểu đồ Tương quan  Heatmap:
-# Biểu đồ Tương quan bằng Heatmap
+
+........................................................................................
+
+- Biểu đồ Tương quan bằng Heatmap
+
 f,ax = plt.subplots(figsize=(20,25))
+
 sns.heatmap(features_scaled.corr(), annot=True, linewidths=.5, fmt= '.1f',ax=ax)
+
+........................................................................................
+
 Kết quả:
+
 Từ biểu đồ Heat Map Tương quan bên dưới, có thể thấy rằng các đặc điểm radius_mean, perimeter_mean, area_mean có mối tương quan với nhau.
+
 Tương tự, các đặc điểm compactness_mean, concavity_mean, concave points_mean cũng có mối tương quan với nhau.
  
 Hình 3.2.2.2.b. 1: biểu đồ Tương quan  Heatmap
+
  c. Thể hiện biểu đồ Swarm:
+
 ─ Giới thiệu thuật ngữ:
+
 + plt.figure(figsize=(15, 8)): tạo một hình vẽ với kích thước cụ thể (15x8).
+
 + sns.swarmplot(): sử dụng thư viện seaborn để tạo biểu đồ Swarm.
+
 + data=swarm_data: Dữ liệu được truyền vào biểu đồ.
+
 + x="features": Đặc điểm trên trục x, là tên các đặc trưng.
+
 + y="value": Giá trị của đặc trưng trên trục y.
+
 + palette="Greens": Màu sắc của các điểm trên biểu đồ, sử dụng bảng màu "Greens".
+
 + hue="diagnosis": Sử dụng màu sắc để phân biệt giữa các nhóm chẩn đoán (ác tính và lành tính).
 
-# Biểu đồ Swarm
+...................................................................................................
+
+- Biểu đồ Swarm
+
 swarm_data = pd.concat([features_scaled[["radius_mean","perimeter_mean","area_mean",
     "compactness_mean", "concavity_mean", "concave points_mean"]], labels_data], axis=1)
+
 swarm_data = pd.melt(swarm_data, id_vars="diagnosis" , var_name='features', value_name='value')
+
 plt.figure(figsize=(15,8))
+
 sns.swarmplot(data=swarm_data, x="features", y="value" ,palette="Set2", hue="diagnosis")
+
+....................................................................................................
 
 Kết quả:
  
 Hình 3.2.2.2.c. 1: Biểu đồ Swarm của các thuộc tính “radius_mean”,”perimeter_mean”,”area_mean”,
 “compactness_mean”, “concavity_mean”, “concave points_mean”
 
+....................................................................................................
+
 # Biểu đồ Swarm
+
 swarm_data = pd.concat([features_scaled[["radius_se","perimeter_se","area_se", "radius_worst",
     "perimeter_worst", "area_worst", 'texture_mean']], labels_data], axis=1)
+
 swarm_data = pd.melt(swarm_data, id_vars="diagnosis" , var_name='features', value_name='value')
+
 plt.figure(figsize=(15,8))
+
 sns.swarmplot(data=swarm_data, x="features", y="value" ,palette="Set2", hue="diagnosis")
+
+....................................................................................................
 
 Kết quả:
  
 Hình 3.2.2.2.c. 2: Biểu đồ Swarm của các thuộc tính “radius_se”,“perimeter_se”, “area_se”,“radius_worst”,“perimeter_worst”,“area_worst”,“texture_mean”
+
 d.	Nhận xét từ biểu đồ:
+
 •	Từ biểu đồ Heatmap, có thể thấy các đặc điểm radius_mean, perimeter_mean, area_mean có mối tương quan với nhau, vì vậy có thể sử dụng area_mean.
+
 Tương tự,
+
 •	compactness_mean, concavity_mean, concave points_mean cũng tương quan với nhau, vì vậy có thể sử dụng concavity_mean.
+
 •	radius_se, perimeter_se và area_se có mối tương quan, do đó, loại bỏ tất cả các đặc điểm ngoại trừ area_se.
+
 •	radius_worst, perimeter_worst, area_worst và area_worst được chọn cho mục đích phân loại.
+
 ➪ Sử dụng cột thuộc tính: area_mean với texture_mean, area_worst
+
 Câu hỏi đặt ra: 
+
 ─ Tại sao chỉ chọn một số đặc điểm cụ thể từ các đặc điểm tương quan khác nhau?
+
 + Từ biểu đồ Swarm trên, có thể thấy rằng area_mean là đặc điểm riêng biệt và phân tán rộng, các đặc điểm có cùng tính chất phân phối sẽ không hữu ích cho việc phân loại.
+
 + Với lý do này, chỉ cần sử dụng các đặc điểm cần thiết.
+
 ─ Tại sao lựa chọn đặc điểm?
+
 + Lựa chọn đặc điểm là một kỹ thuật để chọn ra các đặc điểm quan trọng nhất từ một tập dữ liệu.
+
 + Quá trình này giảm số lượng biến đầu vào và do đó giảm sự phức tạp của mô hình.
+
 ─ Lựa chọn đặc điểm cho K─NN
+
 + Các thuật toán dựa trên khoảng cách như K-NN, K-means và SVM bị ảnh hưởng nhiều bởi phạm vi của các đặc điểm trong tập dữ liệu.
-+ Những thuật toán này dựa trên độ đo khoảng cách, sử dụng khoảng cách giữa các điểm dữ liệu để xác định độ tương tự. Do đó, các đặc điểm liên quan cung cấp độ chính xác tốt hơn.
 
++ Những thuật toán này dựa trên độ đo khoảng cách, sử dụng khoảng cách giữa các điểm dữ liệu để xác định độ tương tự. Do đó, các đặc điểm liên quan cung cấp độ chính xác tốt hơn
 
+...........................................................................................................
+  
+- Danh sách các đặc điểm tương quan, dự kiến loại bỏ
 
-
-
-
-
-
-# Danh sách các đặc điểm tương quan, dự kiến loại bỏ
 drop_list = ['perimeter_mean','radius_mean','compactness_mean','concave points_mean','radius_se',
     'perimeter_se','radius_worst','perimeter_worst','compactness_worst','concave points_worst',
     'compactness_se','concave points_se','texture_worst','area_worst']
-# Bộ dữ liệu về đặc điểm đã được tỷ lệ lại
+
+- Bộ dữ liệu về đặc điểm đã được tỷ lệ lại
+
 features_updated = features_scaled.drop(drop_list,axis = 1)
+
 features_updated.head()
-# In kích thước sau khi loại bỏ các đặc điểm tương quan
+
+- In kích thước sau khi loại bỏ các đặc điểm tương quan
+
 print("Kích thước sau khi loại bỏ các đặc điểm tương quan:", features_updated.shape)
 
+...........................................................................................................
+
 Kết quả: 
+
 Kích thước sau khi loại bỏ các đặc điểm tương quan: (569, 16)
 
-
-
-
-
-
 CHƯƠNG 4: QUY TRÌNH ĐÀO TẠO VÀ ĐÁNH GIÁ MÔ HÌNH
+
 4.1. Chia tập huấn luyện và thử nghiệm (Train-Test Split):
+
 •	Chia tập dữ liệu thành tập huấn luyện và tập thử nghiệm bằng cách sử dụng train_test_split từ mô-đun sklearn.model_selection.
+
 •	Trong trường hợp này, kích thước thử nghiệm được đặt là 0.35 ➪ 35% tập dữ liệu sẽ được sử dụng để kiểm tra hiệu suất mô hình.
 
+........................................................................................
+
 from sklearn.model_selection import train_test_split
-# Train-Test Split
+- Train-Test Split
+
 X_train, X_test, y_train, y_test = train_test_split(features_updated, labels_data, 
+
 test_size=0.35, random_state=42)
+
+........................................................................................
+
 4.2 Bộ phân loại K─NN (K─NN Classifier):
+
 •	Bộ phân loại K─NN là một thuật toán phân loại sử dụng khoảng cách giữa các điểm dữ liệu huấn luyện và các điểm dữ liệu thử nghiệm để xác định những điểm dữ liệu giống nhau nhất.
+
 •	Theo mặc định, K-NN sử dụng khoảng cách Euclidean làm độ đo khoảng cách.
+
 Khoảng cách Euclidean:       giữa hai điểm được đo với công thức:
                                                        (4.2.1)
+
 Trong đó:     d(x, y): là khoảng cách Euclidean giữa hai điểm (x) và (y).
+
 (n):  là số chiều trong không gian (số lượng thành phần).
+
 (x_i) và (y_i):  là các thành phần tương ứng của hai điểm (x) và (y).
+
 Sử dụng cho bất kỳ số chiều nào trong khoảng cách Euclidean giữa hai điểm không gian nhiều chiều.
  
 Hình 4.2. 1: Khoảng cách Euclidean giữa hai điểm không gian nhiều chiều
 
 Hyperparameter trong K─NN:
+
 	Hyperparameters là các tham số có thể điều chỉnh có thể điều chỉnh để cải thiện hiệu suất của mô hình.
+
 	Các hyperparameter cần xem xét trong K─NN là number of neighbors(số lân cận), weights (trọng số), và distance metric (thước đo khoảng cách). Tham số có thể điều chỉnh phổ biến và đơn giản nhất là number of neighbors(số lân cận).
+
 	Tham số n_neighbors được đặt là 5 (giá trị mặc định).
+
 	Mô hình K─NN sử dụng number of neighbors (số lân cận), weights (trọng số), và distance metric (thước đo khoảng cách) bằng cách sử dụng GridSearchCV từ mô-đun sklearn.model_selection
+
 Sau khi đã chia tập dữ liệu, một bộ phân loại K─Nearest Neighbors (K─NN) đã được triển khai để phân loại dữ liệu. Trong trường hợp này, một mô hình với số lân cận là 5 đã được chọn để huấn luyện trên tập huấn luyện (X_train, y_train). Mô hình sau đó được sử dụng để dự đoán nhãn trên tập thử nghiệm (X_test), và kết quả dự đoán được lưu trong biến pred.
 
+...........................................................
+
 from sklearn.neighbors import KNeighborsClassifier
-## KNN Classifier with K=5 (Ban đầu)
+
+- KNN Classifier with K=5 (Ban đầu)
+
 knn = KNeighborsClassifier(n_neighbors=5)
-## Fit mô hình
+
+- Fit mô hình
+
 knn.fit(X_train, y_train)
-## Dự đoán các giá trị
+
+- Dự đoán các giá trị
+
 pred = knn.predict(X_test)
+
+..........................................................
+
 4.3 Các thước đo đánh giá (Evaluation Metrics):
 
 Các thước đo đánh giá được nhập từ mô đun sklearn.metrics.
+
 ─ Phân Loại: Được sử dụng để đánh giá chất lượng của dự đoán bởi mô hình phân loại. Hiển thị như: độ chính xác(precision), độ nhớ lại(recall), và điểm F1(f1-score) dựa trên từng lớp(class) hoặc nhãn(label basis).
+
 o	Độ chính xác (Precision): Tỷ lệ của các lớp được dự đoán đúng trong tổng số dự đoán cho lớp đó.
+
 o	Độ nhớ lại (Recall): Tỷ lệ của các lớp thực tế được dự đoán đúng trong tổng số lớp thực tế của lớp đó.
+
 o	Điểm F1 (F1-score): Trung bình điều hòa của độ chính xác và độ nhớ lại.
 
 ─ Ma trận nhầm lẫn (Confusion Matrix): Là một ma trận N x N dùng để đánh giá mô hình phân loại. Ma trận này so sánh giá trị thực tế với giá trị dự đoán.
+
 o	True Positives (TP): Số lượng dự đoán đúng trong lớp thực tế đó.
+
 o	True Negatives (TN): Số lượng dự đoán đúng ngoài lớp thực tế đó.
+
 o	False Positives (FP): Số lượng dự đoán sai trong lớp thực tế đó.
+
 o	False Negatives (FN): Số lượng dự đoán sai ngoài lớp thực tế đó.
 
-
- 
 Hình 4.3. 1: Mô hình thước đo đánh giá (Evaluation Metrics)
 
-           Điểm Độ Chính Xác (Accuracy Score): Nhận giá trị thực tế và giá trị dự đoán làm đầu vào và trả về độ chính xác của mô hình.
-          Điểm Cross Validation (Cross Val Score): Nhận giá trị đầu vào là tập dữ liệu và cấu hình kiểm tra chéo, sau đó trả về một danh sách các điểm độ chính xác cho mỗi lượt kiểm tra chéo.
+  Điểm Độ Chính Xác (Accuracy Score): Nhận giá trị thực tế và giá trị dự đoán làm đầu vào và trả về độ chính xác của mô hình.
+  
+  Điểm Cross Validation (Cross Val Score): Nhận giá trị đầu vào là tập dữ liệu và cấu hình kiểm tra chéo, sau đó trả về một danh sách các điểm độ chính xác cho mỗi lượt kiểm tra chéo.
+
 -	Mỗi lượt kiểm tra chéo là một tập huấn luyện và thử nghiệm.
  
 Hình 4.3. 2: Mô hình kiểm định chéo 4 lớp (4-fold validation, với k=4)
+
 Mô tả: 
+
 • Fold 1:
+
 + Testing set: Phần dữ liệu được giữ ra để kiểm thử mô hình (25%).
+
 + Training set: Các phần còn lại của dữ liệu được sử dụng để đào tạo mô hình (75%).
+
 • Fold 2:
+
 + Training set: Phần dữ liệu được giữ ra trong Fold 1 được thêm vào training set (50%).
+
 + Testing set: Phần dữ liệu mới được giữ ra để kiểm thử mô hình (25%).
+
 • Fold 3:
+
 + Training set: Phần dữ liệu của Fold 1 và Fold 2 được thêm vào training set (75%).
+
 + Testing set: Phần dữ liệu mới được giữ ra để kiểm thử mô hình (25%).
+
 • Fold 4:
+
 + Testing set: Phần dữ liệu của Fold 3 được giữ ra để kiểm thử mô hình (25%).
+
 + Training set: Tất cả dữ liệu đã sử dụng trước đó được sử dụng để đào tạo mô hình (100%).
 
+....................................................................................................................  
 
-# Phân Loại và Ma trận nhầm lẫn(Confusion)from sklearn.metrics import classification_report, confusion_matrix
-# Độ chính xác
+- Phân Loại và Ma trận nhầm lẫn(Confusion)from sklearn.metrics import classification_report, confusion_matrix
+
+- Độ chính xác
+
 from sklearn.metrics import accuracy_score
-# Điểm đánh giá Cross Validation
+
+- Điểm đánh giá Cross Validation
+
 from sklearn.model_selection import cross_val_score
-# Phân Loại và Ma trận nhầm lẫn
+
+- Phân Loại và Ma trận nhầm lẫn
+
 print("Phân Loại\n",classification_report(y_test, pred),
 "\n\nMa trận nhầm lẫn(Confusion)\n",confusion_matrix(y_test, pred))
 
-
-
+....................................................................................................................
 
 Kết quả: 
+
 Phân Loại
+
                      precision    recall     f1-score     support
+      
         B            0.95           0.95         0.95          129
+        
         M           0.92           0.92         0.92            71
+ 
     accuracy                                       0.94          200
+   
    macro avg    0.93          0.93          0.93          200
+
 weighted avg   0.94         0.94          0.94           200
+
 Ma trận nhầm lẫn(Confusion)
+
  [[123   6]
+ 
  [  6  65]]
-# Điểm Chính Xác cho Toàn Bộ Dữ Liệu Kiểm Tra
+
+............................................................
+
+- Điểm Chính Xác cho Toàn Bộ Dữ Liệu Kiểm Tra
+
 print("Điểm Chính Xác", accuracy_score(y_test, pred))
+
+............................................................
+
 Kết quả: 
+
 Kết quả với điểm chính xác = 94% 
+
 Tiếp tục đào tạo mô hình trên 4 phần và kiểm tra nó trên phần còn lại, sau đó lặp lại quy trình 5 lần với các phần khác nhau.
-# Điểm Chính Xác khi chia dữ liệu thành 5 phần 
+
+.......................................................
+
+- Điểm Chính Xác khi chia dữ liệu thành 5 phần 
+
 print(cross_val_score(knn, X_train, y_train, cv=5)) 
+
+.......................................................
+
 Kết quả: 
+
 [0.98648649 0.93243243 0.94594595 0.94594595 0.95890411]
+
 4.3.1 Huấn luyện mô hình biến đổi theo các tỉ lệ:
 
 Một thử nghiệm đơn giản bằng cách thay đổi lượng dữ liệu huấn luyện và kiểm tra và xem xét cách mô hình hoạt động với neighbors mặc định là 5.
+
 Thử nghiệm 1 - Dữ liệu huấn luyện (Train) 67% và dữ liệu kiểm tra (Test) 33%
+
 Thử nghiệm 2 - Dữ liệu huấn luyện (Train) 80% và dữ liệu kiểm tra (Test) 20%
+
 Thử nghiệm 3 - Dữ liệu huấn luyện (Train) 50% và dữ liệu kiểm tra (Test) 50%
+
 a.	Thử nghiệm 1:
-# Dữ liệu huấn luyện(Train) 67% và dữ liệu kiểm tra(Test) 33%
+
+...........................................................................................................................
+
+- Dữ liệu huấn luyện(Train) 67% và dữ liệu kiểm tra(Test) 33%
+
 X_train, X_test, y_train, y_test = train_test_split(features_updated, labels_data, train_size=0.67, random_state=42)
+
 knn = KNeighborsClassifier(n_neighbors=5)
-## Fit the model
+
+- Fit the model
+
 knn.fit(X_train, y_train)
-## Dự đoán các giá trị
+
+- Dự đoán các giá trị
+
 pred = knn.predict(X_test)
+
 print("Thử nghiệm 1 - Dữ liệu huấn luyện 67% và dữ liệu kiểm tra 33%\n\n Phân loại\n",
 classification_report(y_test, pred), "\n\nMa trận nhầm lẫn(Confusion)\n",confusion_matrix(y_test, pred))
+
 print("\nĐiểm chính xác",accuracy_score(y_test, pred))
+
+...........................................................................................................................
+
 Kết quả: 
+
 Thử nghiệm 1 - Dữ liệu huấn luyện 67% và dữ liệu kiểm tra 33%
+
  Phân loại:
+     
                      precision    recall  f1-score   support
+           
            B            0.95      0.95         0.95       121
+           
            M           0.91      0.91         0.91        67
+    
     accuracy                                    0.94       188
+   
    macro avg      0.93     0.93         0.93        188
+
 weighted avg    0.94     0.94          0.94       188
+
 Ma trận nhầm lẫn(Confusion):
+
  [[115   6]
+ 
  [  6  61]]
+
 Điểm chính xác: 0.9361702127659575
+
 b.	Thử nghiệm 2:
-# Dữ liệu huấn luyện(Train) 80% và dữ liệu kiểm tra(Test) 20%
+
+.........................................................................................................................
+
+- Dữ liệu huấn luyện(Train) 80% và dữ liệu kiểm tra(Test) 20%
+
 X_train, X_test, y_train, y_test = train_test_split(features_updated, labels_data, train_size=0.80, random_state=42)
+
 knn = KNeighborsClassifier(n_neighbors=5)
-## Fit the model
+
+- Fit the model
+
 knn.fit(X_train, y_train)
-## Dự đoán các giá trị
+
+- Dự đoán các giá trị
+
 pred = knn.predict(X_test)
+
 print("Thử nghiệm 2 - Dữ liệu huấn luyện 80% và dữ liệu kiểm tra 20%\n\nPhân loại\n",
 classification_report(y_test, pred), "\n\nMa trận nhầm lẫn(Confusion)\n",confusion_matrix(y_test, pred))
+
 print("\nĐiểm chính xác",accuracy_score(y_test, pred))
+
+..............................................................................................................
+
 Kết quả: 
+
 Thử nghiệm 2 - Dữ liệu huấn luyện 80% và dữ liệu kiểm tra 20%
+
 Phân loại:
+
                      precision    recall  f1-score   support
+      
         B                0.94       0.94      0.94          71
+        
         M               0.91       0.91      0.91          43
+  
     accuracy                                   0.93          114
+
    macro avg       0.93      0.93      0.93          114
+
 weighted avg     0.93      0.93      0.93          114
+
 Ma trận nhầm lẫn(Confusion):
+
  [[67  4]
+ 
  [ 4 39]]
+
 Điểm chính xác: 0.9298245614035088
+
 c.	Thử nghiệm 3:
-# Dữ liệu huấn luyện(Train) 50% và dữ liệu kiểm tra(Test) 50%
+
+ Dữ liệu huấn luyện(Train) 50% và dữ liệu kiểm tra(Test) 50%
+
+........................................................................................................................
+
 X_train, X_test, y_train, y_test = train_test_split(features_updated, labels_data, train_size=0.50, random_state=42)
+
 knn = KNeighborsClassifier(n_neighbors=5)
-## Fit the model
+
+- Fit the model
+
 knn.fit(X_train, y_train)
-## Dự đoán các giá trị
+
+- Dự đoán các giá trị
+
 pred = knn.predict(X_test)
+
 print("Thử nghiệm 3 - Dữ liệu huấn luyện 50% và dữ liệu kiểm tra 50%\n\nPhân loại\n",
+
 classification_report(y_test, pred), "\n\nMa trận nhầm lẫn(Confusion)\n",confusion_matrix(y_test, pred))
+
 print("\nĐiểm chính xác",accuracy_score(y_test, pred))
+
+...........................................................................................................................
+
 Kết quả: 
+
 Thử nghiệm 3 - Dữ liệu huấn luyện 50% và dữ liệu kiểm tra 50%
+
 Phân loại:
+
                       precision    recall  f1-score   support
+      
        B                 0.96        0.96      0.96         187
+       
        M                0.93        0.92      0.92          98
+    
     accuracy                                    0.95          285
+   
    macro avg       0.94        0.94      0.94          285
+
 weighted avg      0.95       0.95       0.95         285
+
 Ma trận nhầm lẫn(Confusion):
+
  [[180   7]
+ 
  [  8  90]]
+
 Điểm chính xác: 0.9473684210526315
+
 d.	Kết luận:
+
 Với một neighbors mặc định là 5, kết quả của các thử nghiệm trên là như sau:
+
 Bảng 4.3.1.d. 1: Kết quả huấn luyện từ 3 thử nghiệm
+
 Thử nghiệm	Dữ liệu Huấn luyện	Dữ liệu Kiểm tra	Điểm chính xác
+
 1	67	33	0.936
+
 2	80	20	0.929
+
 3	50	50	0.947
 
 •	Từ quan sát trên, Có thể thấy rằng điểm chính xác thay đổi khi dữ liệu huấn luyện và dữ liệu kiểm tra được biến đổi.
+
 •	Theo lý tưởng, một tỷ lệ nhỏ hơn dữ liệu huấn luyện sẽ giúp mô hình học tốt hơn. Và một tỷ lệ nhỏ hơn của dữ liệu kiểm tra sẽ giúp mô hình đánh giá mô hình.
+
 Câu hỏi đặt ra:
+
 ─ Làm thế nào để cấu hình chia dữ liệu huấn luyện và kiểm tra?
+
 •	Không có phần trăm chia dữ liệu huấn luyện và kiểm tra tốt nhất cho mọi tình huống.
+
 •	Việc chia dữ liệu phụ thuộc vào nhiều yếu tố như:
+
 o	Chi phí tính toán trong việc huấn luyện và đánh giá mô hình
+
 o	Số lượng lớp trong tập dữ liệu huấn luyện và kiểm tra
+
 ─ Phương pháp xác nhận tốt là gì?
+
 •	Trong phân loại ung thư vú ─ KNN, tập dữ liệu mất cân bằng. Cụ thể, số lượng mẫu lành tính nhiều hơn nhiều so với số lượng mẫu ác tính.
+
 o	Số lượng lành tính: 357 và Ác tính: 212 
+
 •	Khi dữ liệu được phân chia, có khả năng loại điểm dữ liệu cụ thể có thể được đưa vào tập dữ liệu huấn luyện hoặc thử nghiệm. Điều này dẫn đến các vấn đề như Overfitting và Underfitting.
+
 •	Vì vậy cần phải cân bằng tập dữ liệu. Chia tập dữ liệu sao cho duy trì tỷ lệ mẫu lành tính và ác tính có tỉ lệ bằng nhau (equal proportion).
+
 •	Được thực hiện bằng phương pháp Phân chia thử nghiệm đào tạo phân tầng ( Stratified Train─Test Split), trong đó tỷ lệ của cả hai nhãn được duy trì như nhau trong phân chia đào tạo và thử nghiệm.
+
 4.3.2 Phân chia thử nghiệm đào tạo phân tầng (Stratified Train-Test Split):
-# Dữ liệu huấn luyện 67% với Stratified Split
+
+..............................................................................................................................
+
+- Dữ liệu huấn luyện 67% với Stratified Split
+
 X_train, X_test, y_train, y_test = train_test_split(features_updated, labels_data, train_size=0.67,
 random_state=42, stratify=labels_data)
+
 knn = KNeighborsClassifier(n_neighbors=5)
-## Fit the model
+
+- Fit the model
+
 knn.fit(X_train, y_train)
-## Dự đoán giá trị
+
+- Dự đoán giá trị
+
 pred = knn.predict(X_test)
+
 print("Chia Dữ liệu huấn luyện và kiểm tra theo phương pháp Stratified\n\nPhân loại\n",classification_report(y_test, pred),
 "\n\nMa trận nhầm lẫn(Confusion)\n",confusion_matrix(y_test, pred))
+
 print("\nĐiểm chính xác",accuracy_score(y_test, pred))
 
+..................................................................................................................................
+
 Kết quả:
+
 Chia Dữ liệu huấn luyện và kiểm tra theo phương pháp Stratified
+
 Phân loại:
+
                         precision    recall  f1-score   support
+  
       B                    0.95        0.99      0.97         118
+      
       M                   0.98        0.91      0.95          70
+ 
     accuracy                                       0.96         188
+   
    macro avg         0.97        0.95      0.96         188
+
 weighted avg       0.96         0.96      0.96         188
+
 Ma trận nhầm lẫn(Confusion):
+
  [[117   1]
+ 
  [  6  64]]
+
 Điểm chính xác: 0.9627659574468085
+
 Việc sử dụng stratified split của tập dữ liệu đã cải thiện độ chính xác của mô hình phân loại.
+
 •	Khi sử dụng Stratified Split, mô hình có cơ hội tốt hơn để hiểu về tập dữ liệu, vì mỗi phần tử dữ liệu huấn luyện chứa một tỷ lệ cân bằng giữa các nhãn của tập dữ liệu huấn luyện.
+
 4.4 Tinh chỉnh mô hình K─NN, siêu tham số:
+
 •	Tinh chỉnh siêu tham số là quá trình điều chỉnh các siêu tham số của một mô hình để đạt được hiệu suất tốt nhất có thể.
+
 •	Giá trị tối ưu cho các siêu tham số giúp giảm thiểu nhiễu trong phân loại(noise on classification) và hiện tượng (overfitting) của mô hình
+
 •	Tinh chỉnh Siêu tham số được sử dụng hai kỹ thuật:
+
 o	Tìm kiếm Lưới (Grid Search)
+
 o	Phương pháp Elbow (Elbow Method)
+
 4.4.1. Phương pháp Elbow (Elbow Method):
+
 •	Trong Phương pháp Elbow, giá trị tối ưu của n_neighbors được tìm bằng cách biến đổi số lượng cụm từ một phạm vi các giá trị.
+
 •	Tính toán Tổng bình phương bên trong cụm (WCSS) cho mỗi giá trị của n_neighbors hoặc K.
+
 •	WCSS là tổng bình phương khoảng cách giữa trọng tâm của một cụm và từng điểm trong cụm. Với biểu đồ, có thể quan sát đường cong giảm đi một giá trị nhất định, tạo ra một "Elbow Method" trong biểu đồ.
+
 •	Giá trị tương ứng với điểm Elbow Method này là giá trị tối ưu của K.
+
 a.	Tỷ lệ chính xác so với N_Neighbors(Accuracy Rate vs N_Neighbors):
+
+............................................................................................................
+
 accuracy_rate = []
-# phạm vi(Range) của n_neighbors cho KNN
+- phạm vi(Range) của n_neighbors cho KNN
+
 for i in range(1,40):
+
 knn = KNeighborsClassifier(n_neighbors=i)
+
 scores = cross_val_score(knn, X_train, y_train, cv=10, scoring='accuracy')
+
 accuracy_rate.append(scores.mean())
+
 plt.figure(figsize=(12,6))
+
 accuracy_plot = plt.plot(range(1,40), accuracy_rate, color='blue', linestyle='dashed', marker='o',
+
 markerfacecolor='red', markersize=10)
+
 accuracy_plot = plt.title('Tỷ lệ chính xác so với giá trị K')
+
 accuracy_plot = plt.xlabel('N_neighbors')
+
 accuracy_plot = plt.ylabel('Accuracy Rate(Độ chính xác)')
+
+...........................................................................................................
+
 Từ biểu đồ bên dưới , Tỷ lệ chính xác (Accuracy Rate) đang giảm đối với các giá trị cao hơn của N_neighbors. giá trị tối ưu cho n_neighbors từ biểu đồ trên là 11.
  
 Hình 4.4.1.a. 1: Tỷ lệ chính xác so với N_Neighbors(Accuracy Rate vs N_Neighbors)
+
 b. Tỷ lệ lỗi so với N_Neighbors (Error Rate vs N_Neighbors):
+
+.......................................................................................................
+
 error_rate = []
-# phạm vi(Range) của n_neighbors cho KNN
+
+- phạm vi(Range) của n_neighbors cho KNN
+
 for i in range(1,50):
+
 knn = KNeighborsClassifier(n_neighbors=i)
+
 scores = cross_val_score(knn, X_train, y_train, cv=10, scoring='accuracy')
+
 error_rate.append(1 - scores.mean())
+
 plt.figure(figsize=(12,6))
+
 error_rate_plot = plt.plot(range(1,50), error_rate, color='blue', linestyle='dashed', marker='o',
+
 markerfacecolor='red', markersize=10)
+
 error_rate_plot = plt.title('Tỷ lệ lỗi so với giá trị K')
+
 error_rate_plot = plt.xlabel('N_neighbors')
+
 error_rate_plot = plt.ylabel('Error Rate(Tỷ lệ lỗi)')
+
+..........................................................................................................
+
 Từ biểu đồ bên dưới, rõ ràng là Tỷ lệ lỗi(Error Rate) đang tăng đối với các giá trị cao hơn của n_neighbors. giá trị tối ưu (optimal value) cho n_neighbors từ biểu đồ trên là 11. phân loại mô hình KNN cho n_neighbors = 11
  
 Hình 4.4.1.b. 1: Tỷ lệ lỗi so với N_Neighbors (Error Rate vs N_Neighbors)
+
 c. Thực hiện phân loại mô hình KNN:
+
  Cho n_neighbors = 11
 
-# Huấn luyện dữ liệu 67% với Phân chia phân tầng
+........................................................................................................................................
+
+- Huấn luyện dữ liệu 67% với Phân chia phân tầng
+
 X_train, X_test, y_train, y_test = train_test_split(features_updated, labels_data, train_size=0.67,
 random_state=42, stratify=labels_data)
+
 knn = KNeighborsClassifier(n_neighbors=11)
-## Phù hợp với mô hình
+
+- Phù hợp với mô hình
+
 knn.fit(X_train, y_train)
-## Dự đoán các giá trị
+
+- Dự đoán các giá trị
+
 pred = knn.predict(X_test)
+
 print("Phân chia phân tầng giữa Tập Huấn luyện(Train) - Tập Kiểm thử(Test)\n\nPhân loại\n", classification_report(y_test, pred),
 "\n\nMa trận nhầm lẫn(Confusion)\n", confusion_matrix(y_test, pred))
+
 print("\nĐiểm chính xác(Accuracy Score)", accuracy_score(y_test, pred))
 
+..........................................................................................................................................
+
 Kết quả:
+
 Phân chia phân tầng giữa Tập Huấn luyện (Train) ─ Tập Kiểm thử (Test)
+
 Phân loại:
+
                           precision    recall  f1-score   support
+  
       B                    0.95          0.99      0.97         118
+      
       M                   0.98          0.91      0.95            70
+
     accuracy                                         0.96          188
+   
    macro avg         0.97          0.95       0.96          188
+
 weighted avg       0.96           0.96      0.96          188
+
 Ma trận nhầm lẫn(Confusion):
+ 
  [[117   1]
+ 
  [  6  64]]
+
 Điểm chính xác(Accuracy Score): 0.9627659574468085
+
 4.4.2. Tìm Kiếm Lưới (Grid Search):
+
 •	Lặp qua một lưới hyperparameter đã được xác định trước và trả về mô hình tốt nhất dựa trên dữ liệu xác thực.
+
 •	Trong kỹ thuật này, các hyperparameter được chia thành các điểm lưới rời rạc và mô hình được huấn luyện trên mỗi điểm lưới đó. Sau đó, mô hình được đánh giá dựa trên các chỉ số hiệu suất.
+
 Khác với Phương pháp Elbow (Elbow Method), Tìm kiếm lưới (Grid Search) có thể được sử dụng để tìm các giá trị tối ưu của nhiều hyperparameter, không chỉ giới hạn ở giá trị n_neighbors.
 
-# Tìm Kiếm Lưới từ Thư viện Lựa chọn Mô hình (Model Selection)
+.................................................................................................
+
+- Tìm Kiếm Lưới từ Thư viện Lựa chọn Mô hình (Model Selection)
+
 from sklearn.model_selection import GridSearchCV
+
 grid_params = { 'n_neighbors' : [5,7,9,11,13,15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65,
 70, 75, 80, 85, 90, 95, 100],
 'weights' : ['uniform','distance'],
 'metric' : ['minkowski','euclidean','manhattan']}
-# Tìm kiếm lưới trên KNN cho 10-fold cross validation
+
+- Tìm kiếm lưới trên KNN cho 10-fold cross validation
+
 gs = GridSearchCV(KNeighborsClassifier(), grid_params, verbose = 1, cv=10, n_jobs = -1)
+
 g_res = gs.fit(X_train, y_train)
-#Độ chính xác tốt nhất
+
+- Độ chính xác tốt nhất
+
 g_res.best_score_
+
+................................................................................................
+
 Kết quả: 0.958029689608637
-#Các tham số tốt nhất 
+
+..............................
+
+-Các tham số tốt nhất 
+
 g_res.best_params_
+
+.............................
+
 Kết quả: {'metric': 'manhattan', 'n_neighbors': 11, 'weights': 'uniform'
+
 ■ Huấn luyện mô hình với các tham số tốt nhất của mô hình :
-# Huấn luyện dữ liệu 67% với Phân chia phân tầng
+
+.....................................................................................................................................
+
+- Huấn luyện dữ liệu 67% với Phân chia phân tầng
+
 X_train, X_test, y_train, y_test = train_test_split(features_updated, labels_data, train_size=0.67,
 random_state=42, stratify=labels_data)
+
 knn = KNeighborsClassifier(n_neighbors=11, weights='uniform', metric='manhattan')
-## Phù hợp với mô hình
+
+- Phù hợp với mô hình
+
 knn.fit(X_train, y_train)
-## ## Dự đoán các giá trị
+
+- Dự đoán các giá trị
+
 pred = knn.predict(X_test)
+
 print("Phân chia phân tầng giữa Tập Huấn luyện(Train) - Tập Kiểm thử(Test)\n\nPhân loại\n", classification_report(y_test, pred),
 "\n\nMa trận nhầm lẫn(Confusion)\n", confusion_matrix(y_test, pred))
+
 print("\nĐiểm chính xác(Accuracy Score)", accuracy_score(y_test, pred))
+
+........................................................................................................................................
+
 Kết quả:
+
 Phân chia phân tầng giữa Tập Huấn luyện(Train) - Tập Kiểm thử(Test)
+
 Phân loại
+
                           precision    recall  f1-score   support
+
        B                    0.94         1.00      0.97         118
+       
        M                   1.00         0.90      0.95          70
+  
     accuracy                                         0.96         188
+  
    macro avg           0.97        0.95      0.96          188
+
 weighted avg         0.96         0.96      0.96         188
+
 Ma trận nhầm lẫn(Confusion):
+
  [[118   0]
+
  [  7  63]]
+
 Điểm chính xác(Accuracy Score): 0.9627659574468085
+
 4.5 Kết quả và thảo luận:
+
 •	Đối với Thử nghiệm 2 đã triển khai thành công phân loại dựa trên K─NN cho ung thư vú.
+
 •	Breast Cancer dataset (Bộ dữ liệu ung thư vú) là một bộ dữ liệu mất cân bằng với 357 mẫu lành tính và 212 mẫu ác tính.
+
 •	Việc khám phá và trực quan hóa dữ liệu chi tiết được thực hiện lựa chọn đặc trưng, vì bộ dữ liệu có nhiều đặc trưng có sự tương quan.
+
 •	Các thử nghiệm dựa trên kích thước mẫu biến đổi đã được tiến hành để quan sát sự biến đổi trong hiệu suất của bộ phân loại.
+
 •	Việc phân chia dữ liệu phân tầng là lựa chọn tối ưu cho bộ dữ liệu mất cân bằng vì nó tránh các vấn đề của Overfitting và Underfitting, bằng cách đảm bảo tỉ lệ của các nhãn trong mỗi lượt là bằng nhau. Điều này đã làm tăng độ chính xác của mô hình từ 0.95 lên 0.96.
+
 •	Tối ưu hoá Hyperparameter đã được thực hiện bằng cách sử dụng Tìm kiếm lưới và kỹ thuật Phương pháp Elbow để so sánh. Khác với phương pháp Elbow, tìm kiếm lưới có thể được sử dụng để tìm các giá trị tối ưu của nhiều hyperparameter, không chỉ giới hạn ở giá trị n_neighbors.
+
 •	Các Thước đo đánh giá có liên quan như ma trận nhầm lẫn, phân loại, độ chính xác, F1-Score được tính toán cho mô hình K─NN.
 
- 
 CHƯƠNG 5: TRIỂN KHAI ỨNG DỤNG & PHƯƠNG HƯỚNG PHÁT TRIỂN
+
 5.1 Cài đặt và sử dụng:
+
 ─ Cài đặt Visual Studio Code, Visual Studio, PyCharm…
+
 ─ Cài đặt thư viện streamlit
+
 ─  Load file chương trình, vào terminal gõ lệnh: streamlit run app.py
-                          (chương trình có tên “app.py”)
- 
-Hình 5.1. 1: kết quả sau khi vào terminal gõ lênh “streamlit run app.py”
-─ Sau đó chương trình xuất hiện giao diện như sau: 
- 
-Hình 5.1. 2: giao diện chẩn đoán mắc ung thư Ác tính
-
-
- 
-Hình 5.1. 3: giao diện chẩn đoán mắc ung thư Ác tính
-
-
-
-5.2 Những thách thức và hướng phát triển:
-a. Thách Thức Hiện Tại: 
-Chương trình hiện tại đưa ra kết quả về việc mắc ung thư vú chỉ dưới dạng lành tính hoặc ác tính, không nêu rõ các thông tin chi tiết như giai đoạn của bệnh và còn thiếu khả năng nhận biết trường hợp người hoàn toàn không mắc bệnh. Điều này có thể tạo ra một hạn chế đối với các chuyên gia y tế và người dùng khi muốn có cái nhìn chi tiết hơn về tình trạng sức khỏe của bệnh nhân.
-b. Hướng Phát Triển và Cải Thiện:
-Chi Tiết Hóa Giai Đoạn của Bệnh:
-•	Mục tiêu cụ thể là mở rộng chương trình để cung cấp thông tin chi tiết hơn về các giai đoạn của ung thư vú. Điều này có thể giúp bác sĩ và chuyên gia y tế đưa ra quyết định chẩn đoán và điều trị hiệu quả hơn.
-Nhận Biết Bệnh Nhân Hoàn Toàn Khỏe Mạnh:
-•	Bổ sung khả năng nhận biết trường hợp người hoàn toàn không mắc bệnh. Điều này quan trọng để tránh việc gây lo lắng không cần thiết cho những người không mắc bệnh và giúp tăng độ tin cậy của chương trình.
-Giao Diện Thân Thiện và Thao Tác Đơn Giản:
-•	Cải thiện giao diện người dùng để làm cho quá trình thao tác đơn giản và thân thiện hơn. Điều này có thể bao gồm việc tối ưu hóa hiển thị kết quả, thêm hướng dẫn sử dụng, và cải thiện trải nghiệm người dùng.
-Mở Rộng Đối Với Các Trường Hợp Ngoại Lệ:
-•	Mở rộng chương trình để xử lý các trường hợp ngoại lệ khác như bệnh nhân mắc ở các giai đoạn cụ thể (1, 2, 3,...) theo tình hình thực tế. Điều này giúp chương trình trở nên linh hoạt và đáp ứng được nhiều tình huống khác nhau.
-Kết Luận: 
-Chúng em hy vọng rằng những cải tiến và mở rộng với đề xuất trên sẽ giúp chương trình trở thành một công cụ hữu ích và chính xác hơn trong việc chẩn đoán ung thư vú. Việc chi tiết hóa thông tin, nhận biết trường hợp người hoàn toàn không mắc bệnh, và tối ưu hóa giao diện sẽ làm cho chương trình trở nên mạnh mẽ và thân thiện hơn đối với người dùng cuối và các chuyên gia y tế.
+                          (chương trình có tên “apNhững cải tiến và mở rộng với đề xuất trên sẽ giúp chương trình trở thành một công cụ hữu ích và chính xác hơn trong việc chẩn đoán ung thư vú. Việc chi tiết hóa thông tin, nhận biết trường hợp người hoàn toàn không mắc bệnh, và tối ưu hóa giao diện sẽ làm cho chương trình trở nên mạnh mẽ và thân thiện hơn đối với người dùng cuối và các chuyên gia y tế.
  
 
