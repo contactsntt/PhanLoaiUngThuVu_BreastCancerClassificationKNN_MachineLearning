@@ -296,6 +296,8 @@ plt.ylabel("Số Lượng")
 
 ................................................................................................................
 
+<img src="https://private-user-images.githubusercontent.com/134685355/316627522-946e2d09-fde6-48e3-8280-a59fe03739f6.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NTIyLTk0NmUyZDA5LWZkZTYtNDhlMy04MjgwLWE1OWZlMDM3MzlmNi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wNWQyOWE4ZmYxZGYxNzkxYmY3MmI4YTAyODdkODFlN2M4MjA0YjhkN2I4YTQzOWQ3OTNiZDRiMzhkNjM5ZDhiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.rHoVlK1rDO-pmqv2PJna68_WZEobJO6Pie8GQXlCdTs">
+
 Hình 3.2. 1: Hiển thị số lượng “Lành Tính” và “Ác Tính”
 
  Với biểu đồ trên: 
@@ -310,7 +312,7 @@ Số lượng Ác tính: 212
 
 Chuẩn hóa là một quy trình trong đó các giá trị được dịch chuyển và tỷ lệ giữa 0 và 1. Còn được gọi là Min-Max Scaling. Nó được sử dụng để chuẩn hóa dữ liệu sao cho các đặc điểm có một tỷ lệ tương tự. 
 
-Với công thức: 		                                                   (3.2.1.1)
+Với công thức: 		     <img src="https://private-user-images.githubusercontent.com/134685355/316627527-c099db4e-80f3-4490-8554-0caeb0f0c377.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NTI3LWMwOTlkYjRlLTgwZjMtNDQ5MC04NTU0LTBjYWViMGYwYzM3Ny5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lZDczNzkxNDkwMGQ0NWU4NTRmZWM2YjFkZjA3MDBiNjkzY2MwNTAyOTE3YTRhMDI2NTkyMDdkYjJlYjI2ZDdlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.N-y8BHpex52OfMdB8mIsWT-sU2QVHes7N3HYbcOplXU">                                             (3.2.1.1)
 
 + Trong đó Xmin là giá trị tối thiểu và Xmax là giá trị tối đa của đặc điểm.
 Chuẩn hóa là phương pháp tối ưu khi tập dữ liệu không có Phân phối Gaussian. Hữu ích cho các thuật toán như K─NN mà không giả định bất kỳ phân phối nào.
@@ -343,6 +345,8 @@ Nhóm 10 đặc điểm để quan sát dữ liệu số ➩ so sánh phân ph�
 
 a.	10 đặc trưng đầu tiên:
 
+<img src="https://private-user-images.githubusercontent.com/134685355/316627534-9a1e701c-05bb-4eda-9a95-6ca6cd4b7903.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NTM0LTlhMWU3MDFjLTA1YmItNGVkYS05YTk1LTZjYTZjZDRiNzkwMy5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1hM2FjNTNlYmI2ZjQyMzEwYmI5MjdlMzZlNmU2Nzk4MjI2MjRhODkwNzA1N2RmODdlZTYyNGRiY2M4NTUxZDljJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.bGfkaaq4FB5Jeu5Am0Ppj853YZDv4YGXwpeLt3ZKqog">
+
 Hình 3.2.2.1. 1: Biểu đồ Violin thể hiện 10 đặc trưng đầu tiên
 
 Từ biểu đồ trên, thấy rằng một số đặc điểm như radius_mean và texture_mean có phân phối tương tự, trong đó giá trị trung bình của Lành tính được tách biệt khỏi Ác tính. Những đặc điểm như vậy có thể phù hợp cho việc phân loại.
@@ -350,10 +354,14 @@ Từ biểu đồ trên, thấy rằng một số đặc điểm như radius_mea
 Trong khi đó, đặc điểm fractal_dimension_mean có giá trị trung bình của Lành tính và Ác tính gần như giống nhau, do đó không phù hợp để sử dụng đặc điểm này cho việc phân loại.
  
 b.	10 đặc trưng tiếp theo:
+
+<img src="https://private-user-images.githubusercontent.com/134685355/316627541-83a7d64c-6b00-4d0c-827d-ad29a0aa656a.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NTQxLTgzYTdkNjRjLTZiMDAtNGQwYy04MjdkLWFkMjlhMGFhNjU2YS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00MWU3NDI5MmI4MzczZDgyZDljYWJjMzdkMzBjMzc0MDBjNzdiOWVjMzc4YjRhNDM5ODM1NWUxMDQ3NjcxZmU4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.PPJEJEf4ZwKb10Nz3PG20AecNN-VcbALTAbicf0PPy4">
  
 Hình 3.2.2.1. 2: Biểu đồ Violin thể hiện 10 đặc trưng tiếp theo
 
 c.	Các đặc trưng còn lại 
+
+<img src="https://private-user-images.githubusercontent.com/134685355/316627547-1d9b85ee-27d3-4fe5-a0d8-fe0e3fa1d114.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NTQ3LTFkOWI4NWVlLTI3ZDMtNGZlNS1hMGQ4LWZlMGUzZmExZDExNC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0zNGYwNWFhOWY2NmQ2NzE5ZjliMDYzYWI0NDA1MDYxNDY2NmJmZjAyMzJjYjcyZDI2N2UxYzY5NzExZTUwYmQwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.YsrWdEcSiOe_O8MORDB5BqmtBPydgrliqSUVGQEtVbY">
  
 Hình 3.2.2.1. 3: Biểu đồ Violin thể hiện các đặc trưng còn lại
 
@@ -376,6 +384,8 @@ graph.ax_joint.legend([phantom],['r={:f}, p={:f}'.format(r,p)])
 ...............................................................................................................
 
 Kết quả:
+
+<img src="https://private-user-images.githubusercontent.com/134685355/316627551-a4120818-a9d7-4db0-98b1-9c7944b1cf35.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NTUxLWE0MTIwODE4LWE5ZDctNGRiMC05OGIxLTljNzk0NGIxY2YzNS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03MjkzZTRlMjA0YmMzOTlmY2MwZWE1OTljYjBhYjZhNjc1OWY0MDYwODllZjg0MzE5MzZiMjk2YjI0MTM5Y2VlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.BNgaDyc3Obx5b1Q0WTnZB2vpSEZiOSEopTs582RKA_8">
  
 Hình 3.2.2.2.a. 1: Biểu đồ Jointplot cho hai đặc điểm “concavity_worst” & “concave points_worst”
 
@@ -424,6 +434,8 @@ Kết quả:
 Từ biểu đồ Heat Map Tương quan bên dưới, có thể thấy rằng các đặc điểm radius_mean, perimeter_mean, area_mean có mối tương quan với nhau.
 
 Tương tự, các đặc điểm compactness_mean, concavity_mean, concave points_mean cũng có mối tương quan với nhau.
+
+<img src="https://private-user-images.githubusercontent.com/134685355/316627554-097d7b8a-5c85-4fe2-8671-9799867bde39.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NTU0LTA5N2Q3YjhhLTVjODUtNGZlMi04NjcxLTk3OTk4NjdiZGUzOS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT01ZTA3MjI5YjY4YzM1Y2I1MzZhNTBlOTQ2MWI1YTdmNDU1YTIwYzRlYTc1ZWM5ZGQxYWFhYjZmODUxOGUwODlmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.DNf13gjjk4Lwt-dYPkfJjqALn032ZynCVeqvo3KW-_8">
  
 Hình 3.2.2.2.b. 1: biểu đồ Tương quan  Heatmap
 
@@ -461,6 +473,8 @@ sns.swarmplot(data=swarm_data, x="features", y="value" ,palette="Set2", hue="dia
 ....................................................................................................
 
 Kết quả:
+
+<img src="https://private-user-images.githubusercontent.com/134685355/316627568-b6479fb0-cc10-477d-a2cc-a7b27de8fe37.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NTY4LWI2NDc5ZmIwLWNjMTAtNDc3ZC1hMmNjLWE3YjI3ZGU4ZmUzNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lMTRiM2U4MzdlNjIxMjRkNmUzZGFlZjk4ZGZhN2EyZjFmOWM0NGMyN2U2OWRjODg3YjgyMDQ5MzNjNzJkYjg5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.pPYhJvHJcbflZBHkAvUGwedeuVRVqzIS59s0qfu2lBw">
  
 Hình 3.2.2.2.c. 1: Biểu đồ Swarm của các thuộc tính “radius_mean”,”perimeter_mean”,”area_mean”,
 “compactness_mean”, “concavity_mean”, “concave points_mean”
@@ -481,6 +495,8 @@ sns.swarmplot(data=swarm_data, x="features", y="value" ,palette="Set2", hue="dia
 ....................................................................................................
 
 Kết quả:
+
+<img src="https://private-user-images.githubusercontent.com/134685355/316627574-e04699f6-b091-4e74-90ea-5cadc6b22489.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NTc0LWUwNDY5OWY2LWIwOTEtNGU3NC05MGVhLTVjYWRjNmIyMjQ4OS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04NDEyNGI5MjFiOGM1NTg4NDQxNTYyN2M0MjVlNmY4ZTczNDhkMjM4MjUzMmFjM2IzYzFkYjk3OWVhZDZlZDNlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.nNOVszIDkdtJ5teRNPmNsVQGtRE15QrG-xPoWkCiTTA">
  
 Hình 3.2.2.2.c. 2: Biểu đồ Swarm của các thuộc tính “radius_se”,“perimeter_se”, “area_se”,“radius_worst”,“perimeter_worst”,“area_worst”,“texture_mean”
 
@@ -568,7 +584,7 @@ test_size=0.35, random_state=42)
 •	Theo mặc định, K-NN sử dụng khoảng cách Euclidean làm độ đo khoảng cách.
 
 Khoảng cách Euclidean:       giữa hai điểm được đo với công thức:
-                                                       (4.2.1)
+                       <img src="https://private-user-images.githubusercontent.com/134685355/316627582-236a99e2-8ece-4862-bf7c-7a88bba24b31.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NTgyLTIzNmE5OWUyLThlY2UtNDg2Mi1iZjdjLTdhODhiYmEyNGIzMS5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00NjRkZWI1YjA5OTdmYzJjOGNiMjNiMDUzZGJkYzM5MzkxY2VjYzhjNzU2MmM2MWZjY2EzOWRkODc3NWU1Zjk1JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.nLTSH9BOhvBWhcN94rgMmrR2kmDdPxWmeyPmVnWc5hs">                                (4.2.1)
 
 Trong đó:     d(x, y): là khoảng cách Euclidean giữa hai điểm (x) và (y).
 
@@ -577,6 +593,8 @@ Trong đó:     d(x, y): là khoảng cách Euclidean giữa hai điểm (x) và
 (x_i) và (y_i):  là các thành phần tương ứng của hai điểm (x) và (y).
 
 Sử dụng cho bất kỳ số chiều nào trong khoảng cách Euclidean giữa hai điểm không gian nhiều chiều.
+
+<img src="https://private-user-images.githubusercontent.com/134685355/316627585-0691d912-38b8-4d50-9c51-0264fcb45073.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NTg1LTA2OTFkOTEyLTM4YjgtNGQ1MC05YzUxLTAyNjRmY2I0NTA3My5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT05Y2ZkNzk1OGFjMzUwYzQyNjdjYTU0MDkwMWU3MDc3MjA3ZjA3MDRlMTdjNjU5OTBlNmViMGUzMDFkOTY3ODYyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.dJlY-3Tfgz32Vwv8hBZVbe8rsNbFIuaLu9tqzTi6wXY">
  
 Hình 4.2. 1: Khoảng cách Euclidean giữa hai điểm không gian nhiều chiều
 
@@ -632,6 +650,8 @@ o	False Positives (FP): Số lượng dự đoán sai trong lớp thực tế đ
 
 o	False Negatives (FN): Số lượng dự đoán sai ngoài lớp thực tế đó.
 
+<img src="https://private-user-images.githubusercontent.com/134685355/316627594-f264fd96-2529-40f9-a6ab-99ca639e028a.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NTk0LWYyNjRmZDk2LTI1MjktNDBmOS1hNmFiLTk5Y2E2MzllMDI4YS5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lOWY1YWEwMzUzYWU0NDc2NjA1Y2RhYjFiMTgyODc3ZTNjNDU0ZTQwODU1NWM4NTMwYjhlYjBiOWI0MmQ0ZDQxJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.2J7_clMfbuOa7Gwx2vI6NLCxeHXHZEwJRlIaZtKJcA8">
+
 Hình 4.3. 1: Mô hình thước đo đánh giá (Evaluation Metrics)
 
   Điểm Độ Chính Xác (Accuracy Score): Nhận giá trị thực tế và giá trị dự đoán làm đầu vào và trả về độ chính xác của mô hình.
@@ -639,6 +659,8 @@ Hình 4.3. 1: Mô hình thước đo đánh giá (Evaluation Metrics)
   Điểm Cross Validation (Cross Val Score): Nhận giá trị đầu vào là tập dữ liệu và cấu hình kiểm tra chéo, sau đó trả về một danh sách các điểm độ chính xác cho mỗi lượt kiểm tra chéo.
 
 -	Mỗi lượt kiểm tra chéo là một tập huấn luyện và thử nghiệm.
+
+<img src="https://private-user-images.githubusercontent.com/134685355/316627598-a8ca728c-1d48-4785-9aa4-1e91490b9afb.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NTk4LWE4Y2E3MjhjLTFkNDgtNDc4NS05YWE0LTFlOTE0OTBiOWFmYi5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT05MWQ2NWEyOTkyMjY3YTkzNjYzZTQyZTI2YTYyMzY0ZmQ2ZWQ4YmNjNjY3NzRmNzczMGVmM2Y3MGM3ZGYxY2IwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.N0SIc7oRfiLptYmFzLWTx-vPctEB_4_69L5OvIi3y5I">
  
 Hình 4.3. 2: Mô hình kiểm định chéo 4 lớp (4-fold validation, với k=4)
 
@@ -905,13 +927,7 @@ Với một neighbors mặc định là 5, kết quả của các thử nghiệm
 
 Bảng 4.3.1.d. 1: Kết quả huấn luyện từ 3 thử nghiệm
 
-Thử nghiệm	Dữ liệu Huấn luyện	Dữ liệu Kiểm tra	Điểm chính xác
-
-1	67	33	0.936
-
-2	80	20	0.929
-
-3	50	50	0.947
+<img src="https://private-user-images.githubusercontent.com/134685355/316627601-9e1958b3-1b7f-4b65-ab55-b5da0e6ca53f.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NjAxLTllMTk1OGIzLTFiN2YtNGI2NS1hYjU1LWI1ZGEwZTZjYTUzZi5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04MzliMjI3YWJhMmU5MjU2YmQxZDgwZDg2YzNiOTNjYzU3MmZkMjU4Zjg4OTgzMmJiZTJmODEyODFiZDFiOGJjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.DolqW7y-gpobzYSQLMXNkwHdEMuBq833Vbx9OUdX90g">
 
 •	Từ quan sát trên, Có thể thấy rằng điểm chính xác thay đổi khi dữ liệu huấn luyện và dữ liệu kiểm tra được biến đổi.
 
@@ -1049,6 +1065,8 @@ accuracy_plot = plt.ylabel('Accuracy Rate(Độ chính xác)')
 ...........................................................................................................
 
 Từ biểu đồ bên dưới , Tỷ lệ chính xác (Accuracy Rate) đang giảm đối với các giá trị cao hơn của N_neighbors. giá trị tối ưu cho n_neighbors từ biểu đồ trên là 11.
+
+<img src="https://private-user-images.githubusercontent.com/134685355/316627604-f8a17a88-f223-4158-a4d3-cfa527e4509e.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NjA0LWY4YTE3YTg4LWYyMjMtNDE1OC1hNGQzLWNmYTUyN2U0NTA5ZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT01Y2NkOWRhMzNkM2NlZmRkNjNhZDc2MTRmNGI0ZWUxYzQyYTVlNDZiZjM3NTYxOWU1MWViYmNhZGUzZDllMmJiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.wEvDo7VW5nh68ZeU4apjS3uZgG_1AAlzXwbiktHSA7w">
  
 Hình 4.4.1.a. 1: Tỷ lệ chính xác so với N_Neighbors(Accuracy Rate vs N_Neighbors)
 
@@ -1083,6 +1101,8 @@ error_rate_plot = plt.ylabel('Error Rate(Tỷ lệ lỗi)')
 ..........................................................................................................
 
 Từ biểu đồ bên dưới, rõ ràng là Tỷ lệ lỗi(Error Rate) đang tăng đối với các giá trị cao hơn của n_neighbors. giá trị tối ưu (optimal value) cho n_neighbors từ biểu đồ trên là 11. phân loại mô hình KNN cho n_neighbors = 11
+
+<img src="https://private-user-images.githubusercontent.com/134685355/316627609-c45f4577-8721-4d99-9a92-6bc484d88f4e.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NjA5LWM0NWY0NTc3LTg3MjEtNGQ5OS05YTkyLTZiYzQ4NGQ4OGY0ZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mMDJhYWVkN2U4MDMyYTMwM2I4N2E4OWNiNWU1OGMxNjFhNGQxZGQ5NjA2ZDdjMTYxNjRkNzUwMGU1ZDk5NzRjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.wI8Yl0FgfAtRP7z6hLi4dWCrjv7lOsAZzWDrJGbB7eU">
  
 Hình 4.4.1.b. 1: Tỷ lệ lỗi so với N_Neighbors (Error Rate vs N_Neighbors)
 
@@ -1260,6 +1280,26 @@ CHƯƠNG 5: TRIỂN KHAI ỨNG DỤNG & PHƯƠNG HƯỚNG PHÁT TRIỂN
 ─ Cài đặt thư viện streamlit
 
 ─  Load file chương trình, vào terminal gõ lệnh: streamlit run app.py
-                          (chương trình có tên “apNhững cải tiến và mở rộng với đề xuất trên sẽ giúp chương trình trở thành một công cụ hữu ích và chính xác hơn trong việc chẩn đoán ung thư vú. Việc chi tiết hóa thông tin, nhận biết trường hợp người hoàn toàn không mắc bệnh, và tối ưu hóa giao diện sẽ làm cho chương trình trở nên mạnh mẽ và thân thiện hơn đối với người dùng cuối và các chuyên gia y tế.
+
+ (chương trình có tên “app.py”)
+
+<img src="https://private-user-images.githubusercontent.com/134685355/316627614-cdf69d42-4ec7-42ba-ba87-c82ab051dadc.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NjE0LWNkZjY5ZDQyLTRlYzctNDJiYS1iYTg3LWM4MmFiMDUxZGFkYy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00NTEyYjRhZWEzMzYzZjc4ZDYyNmM5ZTc2NzYxNmUwZjRlOWNmZjE2Y2VkN2I3Y2QzNmQ0YjQ2MzhmZGE2Yzc2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.YROY6ezil8PeMwtAjEfytNnraWYsdq3-pUFTSCoaPlw">
+
+Hình 5.1. 1: kết quả sau khi vào terminal gõ lênh “streamlit run app.py”
+
+─ Sau đó chương trình xuất hiện giao diện như sau: 
+
+<img src="https://private-user-images.githubusercontent.com/134685355/316627634-6397805c-23a8-49ef-a38e-ee06ea395e7e.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NjM0LTYzOTc4MDVjLTIzYTgtNDllZi1hMzhlLWVlMDZlYTM5NWU3ZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0xZTk3ODM4ZjM3YmQzOGYwZTY4YjI0MWU5ZDFjNzY5NGQ1NTU2MTI4ZTVhYTcyZDUxNjcwY2M0NDYzNDNkNjJhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.-vQ1GypSJ0QBOgWfP1mj-aIU8tv2aZRU1eXnNxjm3ow">
+
+Hình 5.1. 2: giao diện chẩn đoán mắc ung thư Ác tính
+
+<img src="https://private-user-images.githubusercontent.com/134685355/316627643-afa7367c-01e2-45cc-985b-833c1da297a4.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTEzOTUxMDcsIm5iZiI6MTcxMTM5NDgwNywicGF0aCI6Ii8xMzQ2ODUzNTUvMzE2NjI3NjQzLWFmYTczNjdjLTAxZTItNDVjYy05ODViLTgzM2MxZGEyOTdhNC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwMzI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDMyNVQxOTI2NDdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jNDdkYjdjMjcwNTZmNzMxNTYyZTcyYmM0MGY0N2FlMmM5OGUwODJhODA1MzBlNzc2YjU1ZGM0NDQ2NjU4MGNlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.6vhhs7ebGXTiUszThq_-KFGnuKmdxWYlVeOvmHSGU9Q">
+
+Hình 5.1. 3: giao diện chẩn đoán mắc ung thư Lành tính
+
+
+
+ 
+                         
  
 
